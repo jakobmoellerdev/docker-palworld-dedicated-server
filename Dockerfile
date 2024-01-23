@@ -1,7 +1,7 @@
 FROM --platform=linux/amd64 cm2network/steamcmd:root
 
-LABEL org.opencontainers.image.authors="Sebastian Schmidt"
-LABEL org.opencontainers.image.source="https://github.com/jammsen/docker-palworld-dedicated-server"
+LABEL org.opencontainers.image.authors="Jakob Möller"
+LABEL org.opencontainers.image.source="https://github.com/jakobmoellerdev/docker-palworld-dedicated-server"
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends --no-install-suggests procps xdg-user-dirs \
@@ -33,6 +33,9 @@ VOLUME [ "/palworld" ]
 
 USER steam
 
+ARG SERVER_PASSWORD
+ARG ADMIN_PASSWORD
+
 ENV DEBIAN_FRONTEND=noninteractive \
     PUID=0 \
     PGID=0 \
@@ -44,10 +47,10 @@ ENV DEBIAN_FRONTEND=noninteractive \
     RCON_ENABLED=true \
     PUBLIC_IP=10.0.0.1 \
     PUBLIC_PORT=8211 \
-    SERVER_NAME=jammsen-docker-generated-###RANDOM### \
-    SERVER_DESCRIPTION="Palworld-Dedicated-Server running in Docker by jammsen" \
-    SERVER_PASSWORD=serverPasswordHere \
-    ADMIN_PASSWORD=adminPasswordHere \
+    SERVER_NAME=bbb-0 \
+    SERVER_DESCRIPTION="Palworld-Dedicated Bonsai Baum Buben" \
+    SERVER_PASSWORD=$SERVER_PASSWORD\
+    ADMIN_PASSWORD=$ADMIN_PASSWORD \
     BACKUP_ENABLED=true \
     BACKUP_CRON_EXPRESSION="0 * * * *"
 
