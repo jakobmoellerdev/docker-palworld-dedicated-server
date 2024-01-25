@@ -49,6 +49,6 @@ jobs:
             ghcr.io/${{ github.repository }}/docker-palworld-dedicated-server:${{ steps.slug.outputs.GIT_SHORT_SHA7 }}
             ghcr.io/${{ github.repository }}/docker-palworld-dedicated-server:latest
           labels: ${{ steps.meta.outputs.labels }}
-          args:
+          build-args:
             SERVER_PASSWORD=${{ secrets.SERVER_PASSWORD }}
             ADMIN_PASSWORD=${{ secrets.ADMIN_PASSWORD }}
