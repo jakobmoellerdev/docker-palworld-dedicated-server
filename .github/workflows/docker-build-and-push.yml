@@ -46,8 +46,8 @@ jobs:
           push: true
           tags: |
             ${{ steps.meta.outputs.tags }}
-            ghcr.io/${{ github.repository }}/docker-palworld-dedicated-server:${{ steps.slug.outputs.GIT_SHORT_SHA7 }}
-            ghcr.io/${{ github.repository }}/docker-palworld-dedicated-server:latest
+            ghcr.io/${{ github.repository }}:${{ steps.slug.outputs.GIT_SHORT_SHA7 }}
+            ghcr.io/${{ github.repository }}:latest
           labels: ${{ steps.meta.outputs.labels }}
           build-args:
             SERVER_PASSWORD=${{ secrets.SERVER_PASSWORD }}
